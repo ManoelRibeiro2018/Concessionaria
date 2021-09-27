@@ -7,7 +7,7 @@ import javax.persistence.Entity;
 public class Carro {
 
     @Id
-    private int IdCarro;
+    private Integer IdCarro;
     private String Nome;
     private String Modelo;
     private String Marca;

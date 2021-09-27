@@ -7,7 +7,7 @@ import java.util.Date;
 @Entity(name = "Compras")
 public class Compra {
     @Id
-    private int IdCompra;
+    private Integer IdCompra;
     private Date DataRealizada;
     private Cliente Cliente;
     private Carro Carro;

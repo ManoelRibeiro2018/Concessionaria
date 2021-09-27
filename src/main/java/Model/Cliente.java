@@ -6,7 +6,7 @@ import javax.persistence.Entity;
 @Entity(name = "Usuarios")
 public class Cliente {
     @Id
-    private int IdCliente;
+    private Integer IdCliente;
     private String Nome;
     private String Cpf;
     private String Endereco;

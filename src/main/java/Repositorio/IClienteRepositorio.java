@@ -1,4 +1,4 @@
-package Interface;
+package Repositorio;
 
 import Model.Cliente;
 import org.springframework.data.repository.CrudRepository;

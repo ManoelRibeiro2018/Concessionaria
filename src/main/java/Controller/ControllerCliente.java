@@ -1,9 +1,8 @@
 package Controller;
 
-import Interface.IClienteRepositorio;
+import Repositorio.IClienteRepositorio;
 import Model.Cliente;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.support.Repositories;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

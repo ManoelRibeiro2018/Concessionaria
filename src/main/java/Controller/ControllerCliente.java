@@ -2,6 +2,8 @@ package Controller;
 
 import Repositorio.IClienteRepositorio;
 import Model.Cliente;
+import Repositorio.ICompraRepositorio;
+import Servico.ClienteServico;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,22 +12,22 @@ import org.springframework.web.bind.annotation.*;
 public class ControllerCliente {
 
     @Autowired
-    private IClienteRepositorio repositorio;
+    private ClienteServico servico;
+    private ICompraRepositorio  repositorio;
 
     @PostMapping("api/cliente")
     public Cliente Cadastrar(@RequestBody Cliente cliente){
-        return repositorio.save(cliente);
+        return servico.Cadastrar(cliente);
     }
 
-    @PutMapping("api/cleinte")
-    public Cliente Atualizar (@PathVariable("codigo") Integer codigo, @RequestBody Cliente cleinte){
-        repositorio.findById(codigo);
-       return repositorio.save(cleinte);
+    @PutMapping("api/cliente")
+    public Cliente Atualizar (@PathVariable("codigo") Integer codigo, @RequestBody Cliente cliente){
+       return servico.Atualizar(codigo, cliente);
     }
 
     @DeleteMapping(path = "api/cliente/{codigo}")
     public void Deletar(@PathVariable("codigo") Integer codigo){
-        repositorio.deleteById(codigo);
+        servico.Deletar(codigo);
     }
 
     @GetMapping(path = "api/cliente/{codigo}")

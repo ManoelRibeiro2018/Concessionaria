@@ -24,8 +24,8 @@ public class ClienteServico {
         ));
     }
 
-    public Cliente Atualizar(Cliente cliente){
-        FindById(cliente.getId());
+    public Cliente Atualizar(Integer id, Cliente cliente){
+        FindById(id);
         return repositorio.save(cliente);
     }
 

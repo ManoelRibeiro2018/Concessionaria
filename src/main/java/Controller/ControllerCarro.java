@@ -2,6 +2,7 @@ package Controller;
 
 import Model.Carro;
 import Repositorio.ICarroRepositorio;
+import Servico.CarroServico;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,21 +11,21 @@ import org.springframework.web.bind.annotation.*;
 public class ControllerCarro {
     @Autowired
     private ICarroRepositorio repositorio;
+    private CarroServico  servico;
 
     @PostMapping("api/carro")
     public Carro Cadastrar(@RequestBody Carro carro){
-        return repositorio.save(carro);
+        return servico.Cadastrar(carro);
     }
 
     @PutMapping("api/carro")
     public Carro Atualizar (@PathVariable("codigo") Integer codigo, @RequestBody Carro carro){
-        repositorio.findById(codigo);
-        return repositorio.save(carro);
+        return servico.Atualizar(codigo, carro);
     }
 
     @DeleteMapping(path = "api/carro/{codigo}")
     public void Deletar(@PathVariable("codigo") Integer codigo){
-        repositorio.deleteById(codigo);
+        servico.Deletar(codigo);
     }
 
     @GetMapping(path = "api/carro/{codigo}")

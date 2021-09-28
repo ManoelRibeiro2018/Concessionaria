@@ -23,7 +23,7 @@ public class CarroServico {
         ));
     }
 
-    public Carro Atualizar(Carro carro){
+    public Carro Atualizar(Integer id, Carro carro){
         FindById(carro.getIdCarro());
         return repositorio.save(carro);
     }
